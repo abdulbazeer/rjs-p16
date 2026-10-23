@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   BrowserRouter,
   Routes,
@@ -13,10 +12,8 @@ import Contacts from "./Contacts";
 
 function App() {
   return (
-    <BrowserRouter basename="/prg16">
-
+    <BrowserRouter basename={process.env.NODE_ENV === 'production' ? '/prg16' : ''}>
       <div>
-
         <header>
           <h1>My React Website</h1>
 
@@ -31,7 +28,6 @@ function App() {
 
         <main>
           <Routes>
-
             <Route
               path="/"
               element={<Home />}
@@ -46,12 +42,9 @@ function App() {
               path="/contactus"
               element={<Contacts />}
             />
-
           </Routes>
         </main>
-
       </div>
-
     </BrowserRouter>
   );
 }
